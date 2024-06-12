@@ -52,7 +52,8 @@ python src/download_from_s3.py -i data/raw/file1.csv data/raw/file2.csv
 -i, --input - список CSV файлов для обработки (по умолчанию указаны в скрипте).
 
 ```sh
-python src/preprocess_data.py -s 0.9 -i data/raw/file1.csv data/raw/file2.csv``` 
+python src/preprocess_data.py -s 0.9 -i data/raw/file1.csv data/raw/file2.csv
+``` 
 
 ### 5. Обучение модели 
 Файл train_model.py производит обучение модели и сохранение контрольной точки. Для предсказания цены недвижимости используется линейная регрессия. Модель обучается на данных о площади квартиры и её цене.
