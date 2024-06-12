@@ -19,7 +19,10 @@ OUT_TRAIN = 'data/proc/train.csv'
 OUT_VAL = 'data/proc/val.csv'
 
 TRAIN_SIZE = 0.9
+<<<<<<< HEAD
 PRICE_THRESHOLD = 30_000_000
+=======
+>>>>>>> 194c62d94fc5690fff1a5395b67bd68f18a20f98
 
 
 def main(args):
@@ -32,6 +35,7 @@ def main(args):
     main_dataframe['url_id'] = main_dataframe['url'].map(lambda x: x.split('/')[-2])
     new_dataframe = main_dataframe[['url_id', 'total_meters', 'price']].set_index('url_id')
 
+<<<<<<< HEAD
     new_df = new_dataframe[new_dataframe['price'] < PRICE_THRESHOLD]
 
     border = int(args.split * len(new_df))
@@ -46,13 +50,25 @@ def main(args):
     else:
         raise "Wrong split test size!"
 
+=======
+    new_df = new_dataframe[new_dataframe['price'] < 30_000_000]
+
+    border = int(args.split * len(new_df))
+    train_df, val_df = new_df[0:border], new_df[border:-1]
+    train_df.to_csv(OUT_TRAIN)
+    val_df.to_csv(OUT_VAL)
+>>>>>>> 194c62d94fc5690fff1a5395b67bd68f18a20f98
     logger.info(f'Write {args.input} to train.csv and val.csv. Train set size: {args.split}')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--split', type=float, 
+<<<<<<< HEAD
                         help='Split data, test relative size, from 0 to 1',
+=======
+                        help='Split test size',
+>>>>>>> 194c62d94fc5690fff1a5395b67bd68f18a20f98
                         default=TRAIN_SIZE)
     parser.add_argument('-i', '--input', nargs='+',
                         help='List of input files', 

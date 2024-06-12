@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 .idea
 venv
 /.env
 /.env.prod
+=======
+
+.idea
+venv
+/.env
+/.env.prod
+>>>>>>> 194c62d94fc5690fff1a5395b67bd68f18a20f98
