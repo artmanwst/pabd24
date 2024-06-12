@@ -46,12 +46,24 @@ python src/upload_to_s3.py -i data/raw/file1.csv data/raw/file2.csv
 python src/download_from_s3.py -i data/raw/file1.csv data/raw/file2.csv
 ``` 
 ### 4. Предварительная обработка данных  
+Файл preprocess_data.py преобразует сырые данные в датасеты для обучения и валидации. Записывает результаты в папку data/proc.
+параметры:
+-s, --split - доля данных, идущая на обучающий набор (по умолчанию 0.9).
+-i, --input - список CSV файлов для обработки (по умолчанию указаны в скрипте).
 
-todo 
+```sh
+python src/preprocess_data.py -s 0.9 -i data/raw/file1.csv data/raw/file2.csv``` 
 
 ### 5. Обучение модели 
+Файл train_model.py производит обучение модели и сохранение контрольной точки. Для предсказания цены недвижимости используется линейная регрессия. Модель обучается на данных о площади квартиры и её цене.
+Параметры:
 
-todo Описание модели и входных параметров для предсказания здесь.  
+-m, --model - путь для сохранения обученной модели (по умолчанию 'models/linear_regression_v01.joblib').
+
+```sh
+python src/train_model.py -m models/linear_regression_v01.joblib
+``` 
+
 
 ### 6. Запуск приложения flask 
 
