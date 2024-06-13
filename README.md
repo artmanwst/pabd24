@@ -71,10 +71,10 @@ python src/train_model.py -m models/linear_regression_v01.joblib
 Файл predict_app.py запускает веб-сервис предсказания цен на недвижимость. Веб-сервис на Flask предоставляет API для предсказания цен на основе данных о площади квартиры. Используется аутентификация через токены, которые хранятся в файле .env.
 
 ```sh
-python src/train_model.py -m models/linear_regression_v01.joblib
+python src/predict_app.py
 ``` 
 
-python src/predict_app.py
+
 
 Адрес приложения: http://192.144.12.193:8000
 Токен для авторизации: pabd24.
